@@ -1,0 +1,11 @@
+.container{
+  width: 50%;
+}
+
+.c-left{
+  float: left;
+}
+
+.c-right{
+  float: right;
+}
