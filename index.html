@@ -19,142 +19,19 @@
   	<body>
   		<div class="header">
   			<div class="divTitle">
-  				<h2>Teoria das Filas</h2>
+  				<h2>Simulação</h2>
   				<br>
   			</div>
   		</div>
-      <div class="container c-left">
-    		<div class="forms">
-      		<div class="form-group">
-      			<form  class="form-row" action="" method="POST">
+      <div class="container">
+        <a href="tabelaDeSimulacao.html">
+          Tabela de Simulação
+        </a>
 
-              <div class="form-group row">
-                <label for="time" class="col-sm-4 col-form-label">Tempo a ser simulado:</label>
-                <div class="col-md-2">
-                  <input type="number" class="form-control" id="time">
-                </div>
-              </div>
-              <div class="form-group row chegada">
-                <label for="chegadas" class="col-sm-4 col-form-label">Chegadas (λ):</label>
-                <div class="col col-md-2">
-                  <input type="text" class="form-control chegada-A" placeholder="A">
-                </div>
-                <div class="col col-md-2">
-                  <input type="text" class="form-control chegada-B" placeholder="B">
-                </div>
-                <div class="col col-md-2">
-                  <input type="text" class="form-control chegada-C" placeholder="C">
-                </div>
-              </div>
-              <div class="form-group row servico">
-                <label for="servicos" class="col-sm-4 col-form-label">Serviço (µ):</label>
-                <div class="col col-md-2">
-                  <input type="text" class="form-control servico-A" placeholder="A">
-                </div>
-                <div class="col col-md-2">
-                  <input type="text" class="form-control servico-B" placeholder="B">
-                </div>
-                <div class="col col-md-2">
-                  <input type="text" class="form-control servico-C" placeholder="C">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="prob" class="col-sm-4 col-form-label">Probabilidade de Clientes (Max):<br>
-                P(n) = (1 - ( λ / µ )) * ( λ / µ )²</label>
-                <div class="col-md-2">
-                  <input type="number" class="form-control" id="prob">
-                </div>
-              </div>
+        <a href="teoriaDasFilas.html">
+            Teoria das Filas
+          </a>
 
-            </form>
-            <input class="btn btn-primary" type="submit" onclick="submitForm();" value="Simular">
-          </div>
-
-    		</div>
   		</div>
-
-      <div class="container c-right">
-        <div class="row">
-          <label class="col-sm-4 col-form-label"></label>
-          <label class="col-md-2 col-form-label">A</label>
-          <label class="col-md-2 col-form-label">B</label>
-          <label class="col-md-2 col-form-label">C</label>
-        </div>
-        <div class="row chegada">
-          <label for="chegadas" class="col-sm-4 col-form-label">Chegadas (λ):</label>
-          <div class="col col-md-2">
-            <label class="result-chegada-A">
-          </div>
-          <div class="col col-md-2">
-            <label class="result-chegada-B">
-          </div>
-          <div class="col col-md-2">
-            <label class="result-chegada-C">
-          </div>
-        </div>
-        <div class="row servico">
-          <label for="servicos" class="col-sm-4 col-form-label">Serviço (µ):</label>
-          <div class="col col-md-2">
-            <label class="result-servico-A">
-          </div>
-          <div class="col col-md-2">
-            <label class="result-servico-B">
-          </div>
-          <div class="col col-md-2">
-            <label class="result-servico-C">
-          </div>
-        </div>
-        <div class="row formula-num-med">
-          <label for="formulas-num-med" class="col-sm-4 col-form-label">Número Médio de Carro no Sistema L = λ / (µ - λ)</label>
-          <div class="col col-md-2">
-            <label class="result-num-med-A">
-          </div>
-          <div class="col col-md-2">
-            <label class="result-num-med-B">
-          </div>
-          <div class="col col-md-2">
-            <label class="result-num-med-C">
-          </div>
-        </div>
-        <div class="row formula-time-med">
-          <label for="formulas-time-med" class="col-sm-4 col-form-label">Tempo Médio Despendido no Sistema w = 1 / (µ - λ)</label>
-          <div class="col col-md-2">
-            <label class="result-time-med-A">
-          </div>
-          <div class="col col-md-2">
-            <label class="result-time-med-B">
-          </div>
-          <div class="col col-md-2">
-            <label class="result-time-med-C">
-          </div>
-        </div>
-        <div class="row formula-tax-med">
-          <label for="formulas-tax-med" class="col-sm-4 col-form-label">Taxa Média de Ocupação do Servidor ρ = λ / µ </label>
-          <div class="col col-md-2">
-            <label class="result-tax-med-A">
-          </div>
-          <div class="col col-md-2">
-            <label class="result-tax-med-B">
-          </div>
-          <div class="col col-md-2">
-            <label class="result-tax-med-C">
-          </div>
-        </div>
-        <div class="row formula-tax-med">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">N</th>
-                <th scope="col">P(x)</th>
-                <th scope="col">Cenário A</th>
-                <th scope="col">Cenário B</th>
-                <th scope="col">Cenário C</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-      </div>
   	</body>
   </html>

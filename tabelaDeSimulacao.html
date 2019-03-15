@@ -1,0 +1,109 @@
+<html>
+
+<head>
+
+
+
+  <meta charset="utf-8">
+  <title>Teoria das Filas</title>
+  <link href="css/app.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/custom.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <!--<script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+  		<script src="js/plugins.js"></script>
+  		 <script src="js/app.js"></script> -->
+</head>
+
+<body>
+  <div class="header">
+    <div class="divTitle">
+      <h2>Teoria das Filas</h2>
+      <br>
+    </div>
+  </div>
+  <div class="container c-left">
+
+    <div class="form-group row">
+      <label for="time" class="col-sm-4">Tempo de simulação em minutos:</label>
+      <div class="col-md-2">
+        <input type="number" class="form-control" id="time">
+      </div>
+    </div>
+    <div class="form-group row tec">
+      <label for="tecs" class="col-sm-4">TEC:</label>
+      <div class="col col-md-2">
+        <input type="text" class="form-control tec-input">
+      </div>
+      <div class="col col-md-2">
+        <button type="button" class="btn btn-outline-primary" onclick="addTEC();">Add TEC</button>
+      </div>
+    </div>
+    <div class="form-group row tec">
+      <label for="tecs" class="col-sm-4">TECs já cadastrados:</label>
+      <div class="col col-md-2 select-tecs">
+
+      </div>
+      <div class="col col-md-2">
+          <button type="button" class="btn btn-outline-danger" onclick="excluirTEC();">Excluir TEC</button>
+        </div>
+    </div>
+    <div class="form-group row ts">
+      <label for="tss" class="col-sm-4">TS:</label>
+      <div class="col col-md-2">
+        <input type="text" class="form-control ts-input">
+      </div>
+      <div class="col col-md-2">
+        <button type="button" class="btn btn-outline-primary" onclick="addTS();">Add TS</button>
+      </div>
+    </div>
+      <div class="form-group row ts">
+          <label for="tss" class="col-sm-4">TSs já cadastrados:</label>
+          
+          <div class="col col-md-2 select-tss">
+    
+          </div>
+        </div>
+    <input class="btn btn-primary" type="submit" onclick="tabelaDeSimulacao();" value="Simular">
+  </div>
+
+  <div class="container c-right">
+
+    <div class="row formula-tax-med">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Cliente</th>
+            <th scope="col">Tempo desde a última chegada (minutos)</th>
+            <th scope="col">Tempo de Chegada no Relógio</th>
+            <th scope="col">Tempo de Serviço (minutos)</th>
+            <th scope="col">Tempo de Início do Serviço no Relógio</th>
+            <th scope="col">Tempo do Cliente na Fila (minutos)</th>
+            <th scope="col">Tempo Final do Serviço no Relógio</th>
+            <th scope="col">Tempo do cliente no Sistema (minutos)</th>
+            <th scope="col">Tempo Livre do Operados (minutos)</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+      getTss();
+      getTecs();
+    </script>
+</body>
+
+</html>
