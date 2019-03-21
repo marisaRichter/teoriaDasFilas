@@ -49,7 +49,7 @@ function submitForm() { // inside script tags
 
 }
 
-var tecs = [10,11,12];
+var tecs = [10,12,15];
 var tss = [9,10,11];
 
 function getTecs(){
@@ -82,6 +82,20 @@ function addTS(){
   getTss();
 }
 
+function excluirTEC(){
+  var value = $("#select-tec  option:selected");
+  tecs.splice(value, 1);
+  getTecs();
+
+}
+
+function excluirTS(){
+  var value = $("#select-ts  option:selected");
+  tss.splice(value, 1);
+  getTss();
+
+}
+
 function tabelaDeSimulacao(){
 
   var time = $("#time").val();
@@ -95,14 +109,18 @@ function tabelaDeSimulacao(){
   var anteriorTempoChegadaRelogio = 0;
 
 
+  var resultA = 0;
+  var somaTS = 0;
+  var somaSistema = 0;
   var htmlTable = "<tr>";
 
   while(tempoFinalServicoRelogio <= time){
     if(count != 1){
       randomTec = tecs[Math.floor(Math.random()*tecs.length)];
       randomTs = tss[Math.floor(Math.random()*tss.length)];
-      
+
       var tempoChegadaRelogio = parseInt(randomTec) + parseInt(anteriorTempoChegadaRelogio);
+      anteriorTempoChegadaRelogio = tempoChegadaRelogio;
 
       var fila = 0;
       if(tempoFinalServicoRelogio>=tempoChegadaRelogio){
@@ -115,10 +133,21 @@ function tabelaDeSimulacao(){
       var soma =  parseInt(randomTs) + parseInt(tempoInicio);
       var tempoLivre = 0;
       if(tempoFinalServicoRelogio < tempoChegadaRelogio){
-        tempoLivre = tempoChegadaRelogio - tempoFinalServicoRelogio
+        tempoLivre = tempoChegadaRelogio - tempoFinalServicoRelogio;
       }
-      htmlTable += "<th class='client-" + count + "' scope='row'>"+ count + "</th><td>"+ randomTec + "</td><td>" + tempoChegadaRelogio + "</td><td>" + randomTs + "</td><td>" + tempoInicio + "</td><td>" + fila + "</td><td>" + soma + "</td><td>" + tempoSistema + "</td><td>" + tempoLivre + "</td></tr>";
+      htmlTable += "<th class='client-" + count + "' scope='row'>"+ count + "</th>";
+      htmlTable += "<td>"+ randomTec + "</td>";
+      htmlTable += "<td>" + tempoChegadaRelogio + "</td>";
+      htmlTable += "<td>" + randomTs + "</td>";
+      htmlTable += "<td>" + tempoInicio + "</td>";
+      htmlTable += "<td>" + fila + "</td>";
+      htmlTable += "<td>" + soma + "</td>";
+      htmlTable += "<td>" + tempoSistema + "</td>";
+      htmlTable += "<td>" + tempoLivre + "</td></tr>";
       tempoFinalServicoRelogio = soma;
+      resultA += fila;
+      somaTS += randomTs;
+      somaSistema += tempoSistema;
 
     }else{
       randomTec = tecs[Math.floor(Math.random()*tecs.length)];
@@ -127,9 +156,18 @@ function tabelaDeSimulacao(){
       htmlTable += "<th class='client-" + count + "' scope='row'>"+ count + "</th><td>"+ randomTec + "</td><td>" + randomTec + "</td><td>" + randomTs + "</td><td>" + randomTec + "</td><td>0</td><td>" + soma + "</td><td>" + randomTs + "</td><td>" + randomTec + "</td></tr>";
       tempoFinalServicoRelogio = soma;
       anteriorTempoChegadaRelogio = randomTec;
+      somaTS += randomTs;
+      somaSistema += randomTs;
     }
     count++;
   }
 
-  $("tbody").html(htmlTable);
+  $(".tempos").html(htmlTable);
+  $(".resultA").text(resultA/(count-1));
+  if(resultA > 0){
+    $(".resultB").text(resultA/(count-1));
+  }
+  $(".resultC").text(tempoLivre/soma);
+  $(".resultD").text(somaTS/(count-1));
+  $(".resultE").text(somaSistema/(count-1));
 }

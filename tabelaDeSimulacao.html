@@ -70,12 +70,44 @@
     </div>
       <div class="form-group row ts">
           <label for="tss" class="col-sm-4">TSs já cadastrados:</label>
-          
+
           <div class="col col-md-2 select-tss">
-    
+
           </div>
+          <div class="col col-md-2">
+              <button type="button" class="btn btn-outline-danger" onclick="excluirTS();">Excluir TS</button>
+            </div>
         </div>
     <input class="btn btn-primary" type="submit" onclick="tabelaDeSimulacao();" value="Simular">
+
+    <div class="row">
+      <table class="table table-striped">
+        <thead></thead>
+        <tbody>
+          <tr>
+            <th>Tempo Médio de Espera na Fila:</th>
+            <td class="resultA"></td>
+          </tr>
+          <tr>
+            <th>Probabilidade de um cliente esperar na fila:</th>
+            <td class="resultB"></td>
+          </tr>
+          <tr>
+            <th>Probabilidade do Operador Livre:</th>
+            <td class="resultC"></td>
+          </tr>
+          <tr>
+            <th>Tempo Médio de Serviço:</th>
+            <td class="resultD"></td>
+          </tr>
+          <tr>
+            <th>Tempo Médio Despendido no Sistema:</th>
+            <td class="resultE"></td>
+          </tr>
+        </tbody>
+    </table>
+    </div>
+
   </div>
 
   <div class="container c-right">
@@ -95,7 +127,7 @@
             <th scope="col">Tempo Livre do Operados (minutos)</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="tempos">
         </tbody>
       </table>
     </div>
